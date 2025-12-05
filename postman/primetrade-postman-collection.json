@@ -1,0 +1,128 @@
+{
+  "info": {
+    "name": "PrimeTrade Intelligence API",
+    "_postman_id": "b8f82ed1-72a6-4a67-9c77-primetradeapi",
+    "description": "Postman collection for PrimeTrade Intelligence backend assignment.\nIncludes authentication and trade signal CRUD endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/auth/register",
+              "host": ["{{BASE_URL}}"],
+              "path": ["auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/auth/login",
+              "host": ["{{BASE_URL}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Save JWT automatically after login",
+                  "var data = pm.response.json();",
+                  "if (data.token) {",
+                  "    pm.environment.set(\"TOKEN\", data.token);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Signals",
+      "item": [
+        {
+          "name": "Get Signals (with filters)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/signals?page=1&limit=10&symbol=&risk_level=&status=&sort=created_at_desc",
+              "host": ["{{BASE_URL}}"],
+              "path": ["signals"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "10" },
+                { "key": "symbol", "value": "" },
+                { "key": "risk_level", "value": "" },
+                { "key": "status", "value": "" },
+                { "key": "sort", "value": "created_at_desc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Signal",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"BTC Breakout\",\n  \"symbol\": \"BTCUSDT\",\n  \"entry_price\": 42000,\n  \"target_price\": 45000,\n  \"stop_loss\": 41000,\n  \"risk_level\": \"MEDIUM\",\n  \"status\": \"OPEN\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/signals",
+              "host": ["{{BASE_URL}}"],
+              "path": ["signals"]
+            }
+          }
+        },
+        {
+          "name": "Delete Signal",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{TOKEN}}" }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/signals/1",
+              "host": ["{{BASE_URL}}"],
+              "path": ["signals", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": []
+}

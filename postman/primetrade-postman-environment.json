@@ -1,0 +1,16 @@
+{
+  "id": "primetrade-env",
+  "name": "PrimeTrade Environment",
+  "values": [
+    {
+      "key": "BASE_URL",
+      "value": "http://localhost:5000/api/v1",
+      "enabled": true
+    },
+    {
+      "key": "TOKEN",
+      "value": "",
+      "enabled": true
+    }
+  ]
+}
