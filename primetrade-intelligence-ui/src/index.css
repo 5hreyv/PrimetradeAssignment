@@ -1,0 +1,377 @@
+/* ---------------------------------------------------------
+   WEB3 THEME VARIABLES
+--------------------------------------------------------- */
+:root {
+  --bg: #0a0f1e;
+  --bg-secondary: #121826;
+  --bg-input: #0f1523;
+  --text: #e2e8f0;
+  --subtext: #94a3b8;
+  --border: rgba(255,255,255,0.06);
+
+  --primary: #3b82f6;
+  --primary-hover: #1d4ed8;
+
+  --chip-low-bg: #0f3b1d;
+  --chip-low-text: #4ade80;
+
+  --chip-medium-bg: #3b1f00;
+  --chip-medium-text: #fb923c;
+
+  --chip-high-bg: #3b0d0d;
+  --chip-high-text: #ef4444;
+
+  --chip-open-bg: #112b1f;
+  --chip-open-text: #34d399;
+
+  --chip-closed-bg: #1e1e2e;
+  --chip-closed-text: #a855f7;
+
+  --chip-cancel-bg: #3b1a1a;
+  --chip-cancel-text: #f87171;
+}
+
+/* LIGHT THEME OVERRIDES */
+.light {
+  --bg: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-input: #f1f5f9;
+
+  --text: #0f172a;
+  --subtext: #475569;
+  --border: rgba(0, 0, 0, 0.1);
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+
+  --chip-low-bg: #d1fae5;
+  --chip-low-text: #065f46;
+
+  --chip-medium-bg: #ffedd5;
+  --chip-medium-text: #c2410c;
+
+  --chip-high-bg: #fee2e2;
+  --chip-high-text: #b91c1c;
+
+  --chip-open-bg: #d1fae5;
+  --chip-open-text: #047857;
+
+  --chip-closed-bg: #ede9fe;
+  --chip-closed-text: #6d28d9;
+
+  --chip-cancel-bg: #fee2e2;
+  --chip-cancel-text: #b91c1c;
+}
+
+/* ---------------------------------------------------------
+   GLOBAL ELEMENTS
+--------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ---------------------------------------------------------
+   AUTH LAYOUT
+--------------------------------------------------------- */
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 40px rgba(0,0,0,0.25);
+}
+
+.auth-title {
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+  font-size: 0.95rem;
+  color: var(--subtext);
+  margin-bottom: 1.8rem;
+}
+
+/* ---------------------------------------------------------
+   INPUTS + SELECT
+--------------------------------------------------------- */
+input, select {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  outline: none;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+input:focus, select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+label {
+  font-size: 0.85rem;
+  color: var(--subtext);
+  margin-top: 1rem;
+  display: block;
+}
+
+/* ---------------------------------------------------------
+   BUTTONS
+--------------------------------------------------------- */
+.btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  background: var(--primary);
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--primary-hover);
+}
+
+.btn-secondary {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: var(--bg-input);
+}
+
+/* TINY BUTTONS */
+.btn-small {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+}
+
+/* ---------------------------------------------------------
+   LINKS
+--------------------------------------------------------- */
+.auth-link {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--subtext);
+}
+
+.auth-link span {
+  color: var(--primary);
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------
+   DASHBOARD LAYOUT
+--------------------------------------------------------- */
+.dashboard-container {
+  padding: 2rem;
+}
+
+/* Titles */
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.dashboard-subtitle {
+  color: var(--subtext);
+  margin-bottom: 2rem;
+}
+
+/* ---------------------------------------------------------
+   CARDS
+--------------------------------------------------------- */
+.card {
+  background: var(--bg-secondary);
+  border-radius: 14px;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card-subtitle {
+  color: var(--subtext);
+  margin-bottom: 1rem;
+}
+
+/* ---------------------------------------------------------
+   TABLE
+--------------------------------------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  color: var(--subtext);
+  text-align: left;
+}
+
+td {
+  color: var(--text);
+}
+
+/* ---------------------------------------------------------
+   CHIPS
+--------------------------------------------------------- */
+.chip {
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.chip-low { background: var(--chip-low-bg); color: var(--chip-low-text); }
+.chip-medium { background: var(--chip-medium-bg); color: var(--chip-medium-text); }
+.chip-high { background: var(--chip-high-bg); color: var(--chip-high-text); }
+
+.chip-open { background: var(--chip-open-bg); color: var(--chip-open-text); }
+.chip-closed { background: var(--chip-closed-bg); color: var(--chip-closed-text); }
+.chip-cancelled { background: var(--chip-cancel-bg); color: var(--chip-cancel-text); }
+
+/* ---------------------------------------------------------
+   WEB3 AURA ANIMATION
+--------------------------------------------------------- */
+.web3-aura {
+  position: fixed;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle at center,
+      rgba(56, 189, 248, 0.25),
+      rgba(139, 92, 246, 0.15),
+      transparent 70%);
+  filter: blur(70px);
+  z-index: 0;
+  animation: auraMove 13s infinite alternate ease-in-out;
+}
+
+@keyframes auraMove {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-80px, 60px) scale(1.15); }
+}
+
+/* ---------------------------------------------------------
+   SKELETON LOADER
+--------------------------------------------------------- */
+.skeleton {
+  background: linear-gradient(90deg, #1a2333, #2a3247, #1a2333);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+  height: 18px;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ---------------------------------------------------------
+   TOAST
+--------------------------------------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 60px;
+}
+
+.pw-toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--subtext);
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: 0.2s ease;
+}
+
+.pw-toggle:hover {
+  color: var(--primary);
+}
+
+/* Auth container */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-card {
+  width: 360px;
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 25px rgba(80, 102, 255, 0.15);
+}
+
+.auth-title {
+  margin-bottom: 0.3rem;
+  font-size: 1.7rem;
+}
+
+.auth-subtitle {
+  margin-bottom: 1.5rem;
+  color: var(--subtext);
+}
